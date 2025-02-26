@@ -1,4 +1,4 @@
-package com.example.mahjong_tile_game.model.game_elements;
+package com.example.mahjong_tile_game.model.mahjong_blocks;
 
 import androidx.annotation.NonNull;
 
@@ -12,32 +12,32 @@ import androidx.annotation.NonNull;
  * @version 1.0
  */
 abstract public class Block {
-    private int number;
-    private final Color color;
+    private int rank;
+    private final Suit suit;
 
     /**
-     * nested interface used to control access to the {@code setNumber} method.
+     * nested interface used to control access to the {@code setRank} method.
      */
-    protected interface NumberSetter {
-        void incrementNumber();
+    protected interface RankSetter {
+        void incrementRank();
     }
 
-    public Block(int number, Color color) {
-        this.number = number;
-        this.color = color;
+    public Block(int rank, Suit suit) {
+        this.rank = rank;
+        this.suit = suit;
     }
 
-    public final int getNumber() {
-        return number;
+    public final int getRank() {
+        return rank;
     }
 
-    public final Color getColor() {
-        return color;
+    public final Suit getSuit() {
+        return suit;
     }
 
-    protected final void setNumber(int number, NumberSetter setter) {
+    protected final void setRank(int rank, RankSetter setter) {
         if (setter != null) {
-            this.number = number;
+            this.rank = rank;
         }
     }
 
@@ -48,12 +48,12 @@ abstract public class Block {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("block number: ");
-        builder.append(number);
+        builder.append("block Rank: ");
+        builder.append(rank);
         builder.append("  ");
-        builder.append("block color: ");
+        builder.append("block Suit: ");
 
-        switch (color) {
+        switch (suit) {
             case RED:
                 builder.append("RED");
                 break;

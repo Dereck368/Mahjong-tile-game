@@ -1,14 +1,14 @@
-package com.example.mahjong_tile_game.model.game_elements;
+package com.example.mahjong_tile_game.model.mahjong_blocks;
 
-public class PlayingBlock extends Block{
+public class MahjongBlock extends Block{
     private Status status;
 
     public enum Status {
-        UP, DOWN;
+        UP, DOWN
     }
 
-    public PlayingBlock(int number, Color color) {
-        super(number, color);
+    public MahjongBlock(int rank, Suit suit) {
+        super(rank, suit);
         status = Status.DOWN;
     }
 
@@ -28,9 +28,9 @@ public class PlayingBlock extends Block{
         }
 
         // if it is up you are allowed to compare the two objects
-        if (obj instanceof PlayingBlock && this.isUp()) {
-            PlayingBlock other = (PlayingBlock) obj;
-            return this.getNumber() == other.getNumber() && this.getColor() == other.getColor()
+        if (obj instanceof MahjongBlock && this.isUp()) {
+            MahjongBlock other = (MahjongBlock) obj;
+            return this.getRank() == other.getRank() && this.getSuit() == other.getSuit()
                     && other.isUp();
         }
 
