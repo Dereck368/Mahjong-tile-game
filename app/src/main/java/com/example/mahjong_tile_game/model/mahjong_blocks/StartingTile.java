@@ -2,6 +2,7 @@ package com.example.mahjong_tile_game.model.mahjong_blocks;
 
 public class StartingTile extends Block implements Block.RankSetter {
 
+    //TODO test creation and toString
     public StartingTile(){
         super(1,Suit.PURPLE);
     }

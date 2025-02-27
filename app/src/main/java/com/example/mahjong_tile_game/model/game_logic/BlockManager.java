@@ -29,9 +29,6 @@ public class BlockManager {
             }
         }
 
-        //TODO make sure all classes work (debug)
-        System.out.println(blocks.size());
-
         return blocks;
     }
 

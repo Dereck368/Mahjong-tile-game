@@ -52,18 +52,7 @@ abstract public class Block {
         builder.append(rank);
         builder.append("  ");
         builder.append("block Suit: ");
-
-        switch (suit) {
-            case RED:
-                builder.append("RED");
-                break;
-            case BLUE:
-                builder.append("BLUE");
-                break;
-            case PURPLE:
-                builder.append("PURPLE");
-                break;
-        }
+        builder.append(suit.toString());
 
         return builder.toString();
     }

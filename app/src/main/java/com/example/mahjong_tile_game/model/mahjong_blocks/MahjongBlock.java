@@ -1,10 +1,25 @@
 package com.example.mahjong_tile_game.model.mahjong_blocks;
 
+import androidx.annotation.NonNull;
+
 public class MahjongBlock extends Block{
     private Status status;
 
     public enum Status {
-        UP, DOWN
+        UP, DOWN;
+
+        @NonNull
+        @Override
+        public String toString() {
+            switch (this) {
+                case UP:
+                    return "UP";
+                case DOWN:
+                    return "DOWN";
+            }
+
+            return "";
+        }
     }
 
     public MahjongBlock(int rank, Suit suit) {
@@ -31,9 +46,25 @@ public class MahjongBlock extends Block{
         if (obj instanceof MahjongBlock && this.isUp()) {
             MahjongBlock other = (MahjongBlock) obj;
             return this.getRank() == other.getRank() && this.getSuit() == other.getSuit()
-                    && other.isUp();
+                    && other.isUp() && this.isUp();
         }
 
         return false;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("block Rank: ");
+        builder.append(this.getRank());
+        builder.append("  ");
+        builder.append("block Suit: ");
+        builder.append(this.getSuit().toString());
+        builder.append("  ");
+        builder.append("Status: ");
+        builder.append(this.status.toString());
+
+        return builder.toString();
     }
 }
