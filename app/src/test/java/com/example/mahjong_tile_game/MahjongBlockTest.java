@@ -54,4 +54,21 @@ public class MahjongBlockTest {
         assertNotEquals(block1, differentBlock);
     }
 
+    @Test
+    public void testGetRank() {
+        MahjongBlock block = new MahjongBlock(2, Suit.BLUE);
+        assertEquals(-1, block.getRank());
+
+        block.setStatusUp();
+        assertEquals(2, block.getRank());
+    }
+
+    @Test
+    public void testGetSuit() {
+        MahjongBlock block = new MahjongBlock(2, Suit.BLUE);
+        assertEquals(Suit.GREY, block.getSuit());
+
+        block.setStatusUp();
+        assertEquals(Suit.BLUE, block.getSuit());
+    }
 }

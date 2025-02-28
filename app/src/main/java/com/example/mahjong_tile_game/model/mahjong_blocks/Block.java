@@ -30,7 +30,7 @@ abstract public class Block {
     }
 
 
-    public final int getRank() {
+    public int getRank() {
         return rank;
     }
 
@@ -40,7 +40,7 @@ abstract public class Block {
         }
     }
 
-    public final Suit getSuit() {
+    public Suit getSuit() {
         return suit;
     }
 

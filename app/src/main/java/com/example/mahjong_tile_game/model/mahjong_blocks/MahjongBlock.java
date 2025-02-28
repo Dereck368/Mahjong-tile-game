@@ -36,7 +36,17 @@ public class MahjongBlock extends Block{
         status = Status.UP;
     }
 
-    //TODO might rename
+    // this information is only available when block is up
+    @Override
+    public int getRank() {
+        return this.isUp() ? super.getRank() : -1;
+    }
+
+    @Override
+    public Suit getSuit() {
+        return this.isUp() ? super.getSuit() : Suit.GREY;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -53,6 +63,7 @@ public class MahjongBlock extends Block{
         return false;
     }
 
+    // toString purpose is to represent block, for debuging and testing
     @NonNull
     @Override
     public String toString() {

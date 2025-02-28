@@ -22,7 +22,7 @@ public class BlockFactory {
         // creates blocks 1-9 with a frequency of 4 for each block
         // i.e there would be 4 block 1s'
         // does this for both colors
-        for (int rank = 1; rank < 10; rank++) {
+        for (int rank = 1; rank <= 9; rank++) {
             for (int freq = 0; freq < 4; freq ++) {
                 blocks.add(new MahjongBlock(rank, Suit.BLUE));
                 blocks.add(new MahjongBlock(rank, Suit.RED));
