@@ -10,6 +10,7 @@ public class MahjongBlockTest {
 
     @Test
     public void testMahjongBlockCreation() {
+
         MahjongBlock redBlock = new MahjongBlock(1, Suit.RED);
         MahjongBlock blueBlock = new MahjongBlock(1, Suit.BLUE);
 

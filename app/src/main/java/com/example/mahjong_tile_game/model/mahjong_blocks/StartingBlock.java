@@ -1,9 +1,9 @@
 package com.example.mahjong_tile_game.model.mahjong_blocks;
 
-public class StartingTile extends Block implements Block.RankSetter {
+public class StartingBlock extends Block implements Block.RankSetter {
 
     //TODO test creation and toString
-    public StartingTile() {
+    public StartingBlock() {
         super(1,Suit.PURPLE);
     }
 
@@ -19,8 +19,8 @@ public class StartingTile extends Block implements Block.RankSetter {
             return true;
         }
 
-        if (obj instanceof StartingTile) {
-            StartingTile other = (StartingTile) obj;
+        if (obj instanceof StartingBlock) {
+            StartingBlock other = (StartingBlock) obj;
             return this.getRank() == other.getRank() && this.getSuit() == other.getSuit();
         }
 

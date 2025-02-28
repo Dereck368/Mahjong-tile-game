@@ -8,12 +8,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class BlockManager {
+public class BlockFactory {
 
     private static final int TOTAL_BLOCKS = 72;
     private static final int BLOCKS_PER_PLAYER = TOTAL_BLOCKS / 2;
 
-    public BlockManager() {}
+    public BlockFactory() {}
 
     private List<MahjongBlock> createMahjongBlocks() {
         List<MahjongBlock> blocks = new ArrayList<>();

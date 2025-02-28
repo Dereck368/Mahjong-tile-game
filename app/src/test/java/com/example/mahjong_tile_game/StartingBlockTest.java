@@ -3,23 +3,25 @@ package com.example.mahjong_tile_game;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import com.example.mahjong_tile_game.model.mahjong_blocks.StartingTile;
+import android.graphics.Point;
+
+import com.example.mahjong_tile_game.model.mahjong_blocks.StartingBlock;
 import com.example.mahjong_tile_game.model.mahjong_blocks.Suit;
 
-public class StartingTileTest {
+public class StartingBlockTest {
 
     @Test
     public void startingTileCreationTest() {
-        StartingTile tile = new StartingTile();
+        StartingBlock Block = new StartingBlock();
 
-        assertNotNull(tile);
-        assertEquals(1, tile.getRank());
-        assertEquals(Suit.PURPLE, tile.getSuit());
+        assertNotNull(Block);
+        assertEquals(1, Block.getRank());
+        assertEquals(Suit.PURPLE, Block.getSuit());
     }
 
     @Test
     public void startingTileIncrementRankTest() {
-        StartingTile tile = new StartingTile();
+        StartingBlock tile = new StartingBlock();
 
         tile.incrementRank();
         assertEquals("Rank needs to be incremented", 2, tile.getRank());

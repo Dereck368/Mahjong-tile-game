@@ -5,7 +5,8 @@ import androidx.annotation.NonNull;
 public class MahjongBlock extends Block{
     private Status status;
 
-    public enum Status {
+    // don't want it to be accessed out side of this class
+    private enum Status {
         UP, DOWN;
 
         @NonNull
@@ -56,11 +57,7 @@ public class MahjongBlock extends Block{
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("block Rank: ");
-        builder.append(this.getRank());
-        builder.append("  ");
-        builder.append("block Suit: ");
-        builder.append(this.getSuit().toString());
+        builder.append(super.toString());
         builder.append("  ");
         builder.append("Status: ");
         builder.append(this.status.toString());

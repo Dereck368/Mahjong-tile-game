@@ -1,6 +1,6 @@
 package com.example.mahjong_tile_game;
 
-import com.example.mahjong_tile_game.model.game_logic.BlockManager;
+import com.example.mahjong_tile_game.model.game_logic.BlockFactory;
 import com.example.mahjong_tile_game.model.mahjong_blocks.MahjongBlock;
 
 import org.junit.Test;
@@ -8,11 +8,11 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
-public class BlockManagerTest {
+public class BlockFactoryTest {
 
     @Test
     public void testBlockManger() {
-        BlockManager blockManager = new BlockManager();
+        BlockFactory blockManager = new BlockFactory();
 
         assertNotNull(blockManager);
 
