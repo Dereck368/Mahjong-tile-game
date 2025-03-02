@@ -1,12 +1,10 @@
-package com.example.mahjong_tile_game;
+package com.example.mahjong_tile_game.game_elements_tests;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import android.graphics.Point;
-
-import com.example.mahjong_tile_game.model.mahjong_blocks.StartingBlock;
-import com.example.mahjong_tile_game.model.mahjong_blocks.Suit;
+import com.example.mahjong_tile_game.model.game_elements.StartingBlock;
+import com.example.mahjong_tile_game.model.game_elements.Suit;
 
 public class StartingBlockTest {
 

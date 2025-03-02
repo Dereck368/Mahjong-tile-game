@@ -1,73 +1,66 @@
 package com.example.mahjong_tile_game.model.game_logic;
 
-import com.example.mahjong_tile_game.model.mahjong_blocks.Block;
-import com.example.mahjong_tile_game.model.mahjong_blocks.MahjongBlock;
-import com.example.mahjong_tile_game.model.mahjong_blocks.StartingBlock;
+import com.example.mahjong_tile_game.model.game_elements.Block;
+import com.example.mahjong_tile_game.model.game_elements.MahjongBlock;
+import com.example.mahjong_tile_game.model.game_elements.StartingBlock;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 public class ResolvableQueue {
-    private Queue<Block> queue;
+    private final Queue<Block> queue;
     private boolean resolved;
-    private boolean block;
     private final int rank;
-    private static final float MAX_NUMBER_OF_BLOCKS = 4;
-    private float currentNumberOfBlocks;
+    private static final int MAX_NUMBER_OF_BLOCKS_FOR_QUEUE = 4;
+    private float currentNumberOfValidBlocks;
 
     public  ResolvableQueue(int rank, List<MahjongBlock> blocks) {
         queue = new LinkedList<>();
         resolved = false;
-        block = false;
         this.rank = rank;
-        currentNumberOfBlocks = 0;
+        currentNumberOfValidBlocks = 0;
 
-        initialFill(blocks);
+        fillQueueWith(blocks);
     }
 
-    private void initialFill(List<MahjongBlock> blocks) {
+    private void fillQueueWith(List<MahjongBlock> blocks) {
+        if (blocks.size() > 4) {
+            throw new IllegalArgumentException("ResolvableQueue only takes in a list of size 4");
+        }
+
         queue.addAll(blocks);
     }
 
     //TODO set up cords for each object
     //TODO queue needs to know if it is up or down
 
-
-    public Block moveIn(MahjongBlock block) throws Exception {
-        if (this.isBlocked()) {
-            throw new Exception("Resolvable queue is blocked");
+    public Block pushIn(Block block) {
+        if (this.isResolved()) {
+            throw new IllegalStateException("Resolvable queue is blocked");
         }
 
+        if (block instanceof MahjongBlock) {
+            isValid((MahjongBlock) block);
+            this.updateState();
+        }
+
+        queue.add(block);
+        Block blockPushedOut = queue.remove();
+
+        performActionOn(blockPushedOut);
+
+        return blockPushedOut;
+    }
+
+    private void isValid(MahjongBlock block) {
         if (block.getRank() == -1) {
-            throw new Exception("Moving block that is faced Down In to Queue");
+            throw new IllegalArgumentException("Moving block that is faced Down In to the Queue");
         }
 
         if (block.getRank() != rank) {
-            throw new Exception("Moving block with wrong rank in to ResolvableQueue of rank: " + rank);
+            throw new IllegalArgumentException("Moving block with wrong rank in to ResolvableQueue of rank: " + rank);
         }
-
-        this.updateState();
-
-        queue.add(block);
-        Block returnedBlock = queue.remove();
-
-        performActionOn(returnedBlock);
-
-        return returnedBlock;
-    }
-
-    public Block moveIn(StartingBlock block) throws Exception {
-        if (this.isBlocked()) {
-            throw new Exception("Resolvable queue is blocked");
-        }
-
-        queue.add(block);
-        Block returnedBlock = queue.remove();
-
-        performActionOn(returnedBlock);
-
-        return returnedBlock;
     }
 
     private void performActionOn(Block block) {
@@ -83,9 +76,8 @@ public class ResolvableQueue {
     }
 
     private void updateState() {
-        currentNumberOfBlocks++;
-        if (currentNumberOfBlocks == MAX_NUMBER_OF_BLOCKS) {
-            this.block = true;
+        currentNumberOfValidBlocks++;
+        if (currentNumberOfValidBlocks == MAX_NUMBER_OF_BLOCKS_FOR_QUEUE) {
             this.resolved = true;
         }
     }
@@ -94,7 +86,7 @@ public class ResolvableQueue {
         return resolved;
     }
 
-    public boolean isBlocked() {
-        return block;
+    public static int maxInput() {
+        return MAX_NUMBER_OF_BLOCKS_FOR_QUEUE;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.mahjong_tile_game.model.mahjong_blocks;
+package com.example.mahjong_tile_game.model.game_elements;
 
 public class StartingBlock extends Block implements Block.RankSetter {
 

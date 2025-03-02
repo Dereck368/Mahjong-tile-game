@@ -1,7 +1,7 @@
-package com.example.mahjong_tile_game;
+package com.example.mahjong_tile_game.game_elements_tests;
 
-import com.example.mahjong_tile_game.model.mahjong_blocks.MahjongBlock;
-import com.example.mahjong_tile_game.model.mahjong_blocks.Suit;
+import com.example.mahjong_tile_game.model.game_elements.MahjongBlock;
+import com.example.mahjong_tile_game.model.game_elements.Suit;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -66,7 +66,7 @@ public class MahjongBlockTest {
     @Test
     public void testGetSuit() {
         MahjongBlock block = new MahjongBlock(2, Suit.BLUE);
-        assertEquals(Suit.GREY, block.getSuit());
+        assertEquals(Suit.UNKOWN, block.getSuit());
 
         block.setStatusUp();
         assertEquals(Suit.BLUE, block.getSuit());

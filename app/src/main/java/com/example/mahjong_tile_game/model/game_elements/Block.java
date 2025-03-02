@@ -1,4 +1,4 @@
-package com.example.mahjong_tile_game.model.mahjong_blocks;
+package com.example.mahjong_tile_game.model.game_elements;
 
 import androidx.annotation.NonNull;
 import android.graphics.Point;
@@ -44,7 +44,7 @@ abstract public class Block {
         return suit;
     }
 
-    public final Point getCopyOfPoint() { return new Point(point); }
+    public final Point getPoint() { return point; }
 
     public final void setPoint(int x, int y) { point.set(x, y); }
 

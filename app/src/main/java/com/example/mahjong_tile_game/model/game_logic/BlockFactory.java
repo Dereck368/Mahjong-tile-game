@@ -1,7 +1,7 @@
 package com.example.mahjong_tile_game.model.game_logic;
 
-import com.example.mahjong_tile_game.model.mahjong_blocks.Suit;
-import com.example.mahjong_tile_game.model.mahjong_blocks.MahjongBlock;
+import com.example.mahjong_tile_game.model.game_elements.Suit;
+import com.example.mahjong_tile_game.model.game_elements.MahjongBlock;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,7 +39,7 @@ public class BlockFactory {
         return blocks;
     }
 
-    private List<List<MahjongBlock>> splitBlocks(List<MahjongBlock> blocks) {
+    private List<List<MahjongBlock>> splitOf(List<MahjongBlock> blocks) {
         List<MahjongBlock> split1 = blocks.subList(0, BLOCKS_PER_PLAYER);
         List<MahjongBlock> split2 = blocks.subList(BLOCKS_PER_PLAYER, TOTAL_BLOCKS);
 
@@ -49,7 +49,7 @@ public class BlockFactory {
     public List<List<MahjongBlock>> getDistributedBlocks() {
         List<MahjongBlock> blocks = getRandomizedMahjongBlocks();
 
-        return splitBlocks(blocks);
+        return splitOf(blocks);
     }
 
 }

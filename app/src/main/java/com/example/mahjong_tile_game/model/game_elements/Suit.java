@@ -1,10 +1,10 @@
-package com.example.mahjong_tile_game.model.mahjong_blocks;
+package com.example.mahjong_tile_game.model.game_elements;
 
 import androidx.annotation.NonNull;
 
 // grey suit is for when you don't know
 public enum Suit {
-    RED, BLUE, PURPLE, GREY;
+    RED, BLUE, PURPLE, UNKOWN;
 
     @NonNull
     @Override

@@ -1,7 +1,7 @@
-package com.example.mahjong_tile_game;
+package com.example.mahjong_tile_game.game_logic_tests;
 
 import com.example.mahjong_tile_game.model.game_logic.BlockFactory;
-import com.example.mahjong_tile_game.model.mahjong_blocks.MahjongBlock;
+import com.example.mahjong_tile_game.model.game_elements.MahjongBlock;
 
 import org.junit.Test;
 import static org.junit.Assert.*;

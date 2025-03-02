@@ -1,4 +1,4 @@
-package com.example.mahjong_tile_game.model.mahjong_blocks;
+package com.example.mahjong_tile_game.model.game_elements;
 
 import androidx.annotation.NonNull;
 
@@ -34,7 +34,7 @@ public class MahjongBlock extends Block{
 
     public void setStatusUp() {
         status = Status.UP;
-    }
+    } // push action
 
     // this information is only available when block is up
     @Override
@@ -44,7 +44,7 @@ public class MahjongBlock extends Block{
 
     @Override
     public Suit getSuit() {
-        return this.isUp() ? super.getSuit() : Suit.GREY;
+        return this.isUp() ? super.getSuit() : Suit.UNKOWN;
     }
 
     @Override
