@@ -7,6 +7,10 @@ public class StartingBlock extends Block implements Block.RankSetter {
         super(1,Suit.PURPLE);
     }
 
+    public StartingBlock(Coordinate point) {
+        super(1, Suit.PURPLE, point);
+    }
+
     @Override
     public void incrementRank() {
         int incrementedRank = this.getRank() + 1;

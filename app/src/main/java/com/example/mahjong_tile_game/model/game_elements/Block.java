@@ -1,7 +1,6 @@
 package com.example.mahjong_tile_game.model.game_elements;
 
 import androidx.annotation.NonNull;
-import android.graphics.Point;
 
 /**
  * Block class is an abstract class
@@ -16,7 +15,7 @@ abstract public class Block {
     private int rank;
     private final Suit suit;
 
-    private final Point point;
+    private final Coordinate point;
 
     /**
      * nested interface used to control access to the {@code setRank} method.
@@ -26,7 +25,13 @@ abstract public class Block {
     public Block(int rank, Suit suit) {
         this.rank = rank;
         this.suit = suit;
-        this.point = new Point();
+        this.point = new AndroidPoint();
+    }
+
+    public Block(int rank, Suit suit, Coordinate point) {
+        this.rank = rank;
+        this.suit = suit;
+        this.point= point; // Set custom position
     }
 
 
@@ -44,7 +49,7 @@ abstract public class Block {
         return suit;
     }
 
-    public final Point getPoint() { return point; }
+    public final Coordinate getPoint() { return point; }
 
     public final void setPoint(int x, int y) { point.set(x, y); }
 
@@ -63,12 +68,12 @@ abstract public class Block {
         builder.append("block Suit: ");
         builder.append(suit.toString());
         builder.append("  ");
-        if (this.point.x != 0 && this.point.y != 0) {
+        if (this.point.getX() != 0 && this.point.getY() != 0) {
             builder.append("Coordinate: ");
             builder.append('(');
-            builder.append(point.x);
+            builder.append(point.getX());
             builder.append(",");
-            builder.append(point.y);
+            builder.append(point.getY());
             builder.append(')');
         }
 

@@ -28,6 +28,11 @@ public class MahjongBlock extends Block{
         status = Status.DOWN;
     }
 
+    public MahjongBlock(int rank, Suit suit, Coordinate point) {
+        super(rank, suit, point);
+        status = Status.DOWN;
+    }
+
     public boolean isUp() {
         return status == Status.UP;
     }

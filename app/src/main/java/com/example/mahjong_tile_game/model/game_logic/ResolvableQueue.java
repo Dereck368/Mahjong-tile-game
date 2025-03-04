@@ -29,11 +29,16 @@ public class ResolvableQueue {
             throw new IllegalArgumentException("ResolvableQueue only takes in a list of size 4");
         }
 
-        queue.addAll(blocks);
-    }
+        // Start from the bottom row
+        int currentRow = 4;
 
-    //TODO set up cords for each object
-    //TODO queue needs to know if it is up or down
+        // putting blocks in grid format
+        for (MahjongBlock block : blocks) {
+            block.setPoint(rank, currentRow); // Rank is column, currentRow is row
+            queue.add(block);
+            currentRow--;
+        }
+    }
 
     public Block pushIn(Block block) {
         if (this.isResolved()) {
@@ -54,7 +59,7 @@ public class ResolvableQueue {
     }
 
     private void isValid(MahjongBlock block) {
-        if (block.getRank() == -1) {
+        if (!block.isUp()) {
             throw new IllegalArgumentException("Moving block that is faced Down In to the Queue");
         }
 
