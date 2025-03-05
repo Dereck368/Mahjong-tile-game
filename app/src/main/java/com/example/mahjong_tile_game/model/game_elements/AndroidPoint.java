@@ -31,6 +31,20 @@ public class AndroidPoint implements Coordinate {
 
     @Override
     public void offset(int x, int y) {
+        point.offset(x,y);
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj instanceof AndroidPoint) {
+            AndroidPoint otherPoint = (AndroidPoint) obj;
+            return this.getX() == otherPoint.getX() && this.getY() == otherPoint.getY();
+        }
+
+        return false;
     }
 }

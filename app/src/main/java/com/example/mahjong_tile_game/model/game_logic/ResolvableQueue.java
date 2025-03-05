@@ -60,7 +60,7 @@ public class ResolvableQueue {
 
     private void isValid(MahjongBlock block) {
         if (!block.isUp()) {
-            throw new IllegalArgumentException("Moving block that is faced Down In to the Queue");
+            throw new IllegalArgumentException("Moving block that is faced DOWN into the Queue");
         }
 
         if (block.getRank() != rank) {
